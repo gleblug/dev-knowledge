@@ -4,15 +4,15 @@
 #include <vector>
 
 
-template <typename InputIt, typename OutputIt>
-void reverse_array(InputIt first, OutputIt last)
+template <typename InputIt>
+void reverse_array(InputIt first, InputIt last)
 {
     while (first < last)
         std::swap(*(first++), *(--last));
 }
 
-template <typename InputIt, typename OutputIt>
-void reverse_part_of_array(InputIt first, OutputIt last, size_t firstIdx, size_t lastIdx)
+template <typename InputIt>
+void reverse_part_of_array(InputIt first, InputIt last, size_t firstIdx, size_t lastIdx)
 {
     if ((firstIdx >= lastIdx) || (lastIdx > std::distance(first, last)))
         return;
