@@ -10,7 +10,7 @@ void merge_sorted_lists(SinglyLinkedList<T> &objTo, SinglyLinkedList<T> &&objFro
     SinglyNode<T> *curTo = objTo.head;
     SinglyNode<T> *firstFrom = objFrom.head->next;
 
-    while (curTo->next != nullptr && firstFrom != nullptr)
+    while ((curTo->next != nullptr) && (firstFrom != nullptr))
     {
         if (curTo->next->data > firstFrom->data)
         {
@@ -18,12 +18,14 @@ void merge_sorted_lists(SinglyLinkedList<T> &objTo, SinglyLinkedList<T> &&objFro
             firstFrom->next = curTo->next;
             curTo->next = firstFrom;
             firstFrom = objFrom.head->next;
-        } else
-        {
+        } else {
             curTo = curTo->next;
         }
     }
 
+    while (curTo->next != nullptr)
+        curTo = curTo->next;
+    
     curTo->next = objFrom.head->next;
     objFrom.head->next = nullptr;
 
@@ -33,11 +35,14 @@ void merge_sorted_lists(SinglyLinkedList<T> &objTo, SinglyLinkedList<T> &&objFro
 
 int main(int argc, char const *argv[])
 {
-    SinglyLinkedList<int> sll1{1, 4, 5, 8, 10};
-    SinglyLinkedList<int> sll2{2, 3, 4, 8, 10, 12};
+    // SinglyLinkedList<int> sll1{1, 4, 5, 8, 10};
+    // SinglyLinkedList<int> sll2{2, 3, 4, 8, 10, 12};
+    SinglyLinkedList<int> sll1{};
+    SinglyLinkedList<int> sll2{};
+
+    std::cin >> sll1 >> sll2;
 
     // result will be recorded to first list
-    // move second parameter prevent it's further reading
     merge_sorted_lists(sll1, std::move(sll2));
 
     std::cout << sll1 << std::endl;
