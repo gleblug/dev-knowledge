@@ -5,6 +5,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <utility>
 
 namespace error
 {
@@ -24,20 +25,35 @@ public:
         Node *next = nullptr;
     };
 
-    Node *head = new Node;
-    std::size_t m_size = 0;
+    Node *head;
+    std::size_t m_size;
 
-    SinglyLinkedList() = default;
+    SinglyLinkedList() :
+        head{new Node},
+        m_size{0} {}
+
+    SinglyLinkedList(const SinglyLinkedList& other) = delete;
+
+    SinglyLinkedList(SinglyLinkedList&& other) :
+        head(std::exchange(other.head, new Node{})),
+        m_size(std::exchange(other.m_size, 0))
+    {
+        std::cout << "move c-tor";
+    }
 
     // TODO: add copy c-tor
 
-    SinglyLinkedList(const std::initializer_list<T>& list)
+    SinglyLinkedList(const std::initializer_list<T>& list) :
+        head{new Node},
+        m_size{0}
     {
         for (const T& elem : list)
             append_back(elem);
     }
 
-    SinglyLinkedList(Node *first)
+    SinglyLinkedList(Node *first) :
+        head{new Node},
+        m_size{0}
     {
         head->next = first;
         calculate_size();
@@ -45,6 +61,12 @@ public:
 
     ~SinglyLinkedList()
     {
+        // if (empty())
+        // {
+        //     delete head;
+        //     return;
+        // }
+        
         auto node = head;
         auto next = head->next;
         for (auto i = 0; i < size(); ++i)
