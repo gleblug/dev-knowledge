@@ -1,10 +1,10 @@
 #include "gtest/gtest.h"
 
-#include "01-has-cycle.h"
-#include "02-reverse-linked-list.h"
-#include "03-middle-node.h"
-#include "04-remove-values.h"
-#include "05-merge-sorted-lists.h"
+#include "01-has-cycle.hpp"
+#include "02-reverse-linked-list.hpp"
+#include "03-middle-node.hpp"
+#include "04-remove-values.hpp"
+#include "05-merge-sorted-lists.hpp"
 
 TEST(has_cycle, linked_list)
 {

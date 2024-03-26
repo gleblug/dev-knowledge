@@ -25,7 +25,7 @@ inline void merge_sort_arrays(
 }
 
 template <typename T>
-inline void merge_sort_arrays_second(std::vector<T> &vec1, const std::vector<T> &vec2)
+inline void merge_sort_arrays_optimized(std::vector<T> &vec1, const std::vector<T> &vec2)
 {
     if (vec2.empty())
         return;

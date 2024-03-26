@@ -5,15 +5,19 @@
 
 inline bool is_subsequence_queue(const std::string &a, const std::string &b)
 {
-    std::queue<char> q;
+    std::queue<char> queue;
     for (const char el : a)
-        q.push(el);
+        queue.push(el);
     
     for (const char el : b)
-        if (el == q.front())
-            q.pop();
+    {
+        if (queue.empty())
+            return true;
+        if (el == queue.front())
+            queue.pop();
+    }
 
-    return q.empty();
+    return queue.empty();
 }
 
 inline bool is_subsequence_two_pointers(const std::string &a, const std::string &b)

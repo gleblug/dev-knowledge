@@ -21,10 +21,10 @@ inline bool is_palindrome_two_pointers(const std::string &word)
 {
     if (word.size() < 2)
         return true;
-    std::size_t l = 0;
-    std::size_t r = word.size() - 1;
-    while (l < r)
-        if (word[l++] != word[r--])
+    std::size_t left = 0;
+    std::size_t right = word.size() - 1;
+    while (left < right)
+        if (word[left++] != word[right--])
             return false;
     return true;
 }

@@ -2,7 +2,7 @@
 #include <string>
 
 // stack-like solution
-// copy std::string!
+// copy std::string
 inline std::string remove_duplicates(const std::string &str)
 {
     std::string res;

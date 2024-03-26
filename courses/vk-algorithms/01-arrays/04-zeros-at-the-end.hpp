@@ -1,4 +1,3 @@
-#include <array>
 #include <iterator>
 
 template <typename InputIt>

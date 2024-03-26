@@ -1,23 +1,24 @@
 #pragma once
+
 template <typename T>
 inline T binary_search_sqrt(const T target)
 {
-    T l = 0;
-    T r = target;
-    while (l <= r)
+    T left = 0;
+    T right = target;
+    while (left <= right)
     {
-        T mid = (l + r) / 2;
+        T mid = left / 2 + right / 2;
         if (mid * mid > target)
         {
-            r = mid - 1;
+            right = mid - 1;
             continue;
         }
         if (mid * mid < target)
         {
-            l = mid + 1;
+            left = mid + 1;
             continue;
         }
         return mid;
     }
-    return r;
+    return right;
 }

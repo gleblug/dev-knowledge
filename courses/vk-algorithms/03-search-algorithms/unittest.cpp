@@ -1,10 +1,10 @@
 #include "gtest/gtest.h"
 
-#include "01-very-simple-task.h"
-#include "02-is-subsequence.h"
-#include "03-binary-search-sqrt.h"
-#include "04-is-palindrome.h"
-#include "05-remove-duplicates.h"
+#include "01-very-simple-task.hpp"
+#include "02-is-subsequence.hpp"
+#include "03-binary-search-sqrt.hpp"
+#include "04-is-palindrome.hpp"
+#include "05-remove-duplicates.hpp"
 
 
 TEST(very_simple_task, normal)

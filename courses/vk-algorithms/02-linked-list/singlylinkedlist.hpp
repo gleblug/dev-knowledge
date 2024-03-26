@@ -2,9 +2,7 @@
 #include <exception>
 #include <initializer_list>
 #include <iostream>
-#include <ostream>
 #include <sstream>
-#include <stdexcept>
 #include <string>
 #include <utility>
 
@@ -40,8 +38,6 @@ public:
         m_size(std::exchange(other.m_size, 0))
     {}
 
-    // TODO: add copy c-tor
-
     SinglyLinkedList(const std::initializer_list<T>& list) :
         head{new Node},
         m_size{0}
@@ -59,13 +55,7 @@ public:
     }
 
     ~SinglyLinkedList()
-    {
-        // if (empty())
-        // {
-        //     delete head;
-        //     return;
-        // }
-        
+    {        
         auto node = head;
         auto next = head->next;
         for (auto i = 0; i < size(); ++i)
@@ -97,7 +87,6 @@ public:
 
     std::size_t size() const
     {
-
         return m_size;
     }
 
@@ -131,14 +120,6 @@ public:
         cur_node->next = last;
         ++m_size;
     }
-
-    // bool insert(Node *after, const T& elem)
-    // {
-    // }
-
-    // void erase(const std::size_t from, const std::size_t to)
-    // {
-    // }
 
     Node *at(const std::size_t idx)
     {
