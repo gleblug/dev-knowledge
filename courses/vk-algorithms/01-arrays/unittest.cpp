@@ -92,7 +92,7 @@ TEST(zeros_at_the_end, edge_case)
     EXPECT_EQ(vec, res);
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     testing::InitGoogleTest();
     return RUN_ALL_TESTS();
