@@ -1,9 +1,10 @@
+#pragma once
 #include "singlylinkedlist.h"
 #include <iostream>
 
 
 template <typename T>
-void reverse_linked_list(SinglyLinkedList<T>& obj)
+inline void reverse_linked_list(SinglyLinkedList<T>& obj)
 {
     if (obj.size() < 2)
         return;
@@ -23,15 +24,4 @@ void reverse_linked_list(SinglyLinkedList<T>& obj)
 
     cur->next = prev;
     obj.head->next = cur;
-}
-
-int main(int argc, char const *argv[])
-{
-    SinglyLinkedList<int> sll;
-
-    std::cin >> sll;
-    reverse_linked_list(sll);
-    std::cout << sll;
-
-    return 0;
 }

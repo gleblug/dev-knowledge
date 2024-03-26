@@ -1,5 +1,5 @@
+#pragma once
 #include "singlylinkedlist.h"
-
 
 template <typename T>
 void remove_values(SinglyLinkedList<T>& obj, const T& value)
@@ -20,16 +20,5 @@ void remove_values(SinglyLinkedList<T>& obj, const T& value)
         }
         cur = prev->next;
     }
-}
-
-int main(int argc, char const *argv[])
-{
-    SinglyLinkedList<int> sll;
-    int val;
-
-    std::cin >> sll >> val;
-    remove_values(sll, val);
-    std::cout << sll;
-
-    return 0;
+    obj.calculate_size();
 }

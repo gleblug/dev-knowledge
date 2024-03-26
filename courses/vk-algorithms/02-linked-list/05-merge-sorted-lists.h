@@ -1,3 +1,4 @@
+#pragma once
 #include "singlylinkedlist.h"
 #include <cassert>
 
@@ -5,7 +6,7 @@
 // memory cost equal O(1)
 // lists should be sorted in increasing order (simple merge sort)
 template <typename T>
-void merge_sorted_lists(SinglyLinkedList<T> &objTo, SinglyLinkedList<T> &&objFrom)
+inline void merge_sorted_lists(SinglyLinkedList<T> &objTo, SinglyLinkedList<T> &&objFrom)
 {
     SinglyNode<T> *curTo = objTo.head;
     SinglyNode<T> *firstFrom = objFrom.head->next;
@@ -31,21 +32,4 @@ void merge_sorted_lists(SinglyLinkedList<T> &objTo, SinglyLinkedList<T> &&objFro
 
     objTo.m_size = objTo.size() + objFrom.size();
     objFrom.m_size = 0;
-}
-
-int main(int argc, char const *argv[])
-{
-    // SinglyLinkedList<int> sll1{1, 4, 5, 8, 10};
-    // SinglyLinkedList<int> sll2{2, 3, 4, 8, 10, 12};
-    SinglyLinkedList<int> sll1{};
-    SinglyLinkedList<int> sll2{};
-
-    std::cin >> sll1 >> sll2;
-
-    // result will be recorded to first list
-    merge_sorted_lists(sll1, std::move(sll2));
-
-    std::cout << sll1 << std::endl;
-
-    return 0;
 }

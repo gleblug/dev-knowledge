@@ -1,3 +1,4 @@
+#pragma once
 #include <exception>
 #include <initializer_list>
 #include <iostream>
@@ -37,9 +38,7 @@ public:
     SinglyLinkedList(SinglyLinkedList&& other) :
         head(std::exchange(other.head, new Node{})),
         m_size(std::exchange(other.m_size, 0))
-    {
-        std::cout << "move c-tor";
-    }
+    {}
 
     // TODO: add copy c-tor
 
@@ -76,6 +75,24 @@ public:
             next = node->next;
         }
         delete node;
+    }
+
+    bool operator==(const SinglyLinkedList &other)
+    {
+        if (size() != other.size())
+            return false;
+
+        auto cur_other = other.head->next;
+        auto cur_this = head->next;
+
+        for (auto i = 0; i < size(); ++i)
+        {
+            if (cur_other->data != cur_this->data)
+                return false;
+            cur_other = cur_other->next;
+            cur_this = cur_this->next;
+        }
+        return true;
     }
 
     std::size_t size() const

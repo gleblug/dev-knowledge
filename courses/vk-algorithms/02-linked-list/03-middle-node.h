@@ -1,3 +1,4 @@
+#pragma once
 #include "singlylinkedlist.h"
 
 
@@ -16,14 +17,4 @@ SinglyNode<T> *middle_node(SinglyLinkedList<T>& obj)
     }
 
     return slow;
-}
-
-int main(int argc, char const *argv[])
-{
-    SinglyLinkedList<int> sll;
-
-    std::cin >> sll;
-    std::cout << middle_node(sll)->data << std::endl;
-
-    return 0;
 }

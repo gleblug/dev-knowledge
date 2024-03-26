@@ -1,3 +1,4 @@
+#pragma once
 #include "singlylinkedlist.h"
 #include <iostream>
 #include <cassert>
@@ -19,19 +20,4 @@ bool has_cycle(const SinglyLinkedList<T>& obj)
         fast = fast->next->next;
     }   
     return true;
-}
-
-int main(int argc, char const *argv[])
-{
-    SinglyLinkedList<int> sll1{1, 2, 3, 4, 5, 6, 7, 8, 9};
-    SinglyLinkedList<int> sll2{1, 2, 3, 4, 5, 6, 7, 8, 9};
-    SinglyLinkedList<int> sll3{};
-
-    sll1.at(8)->next = sll1.at(5);
-
-    assert(has_cycle(sll1) == true);
-    assert(has_cycle(sll2) == false);
-    assert(has_cycle(sll3) == false);
-
-    return 0;
 }
