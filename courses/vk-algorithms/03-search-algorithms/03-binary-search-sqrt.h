@@ -1,3 +1,4 @@
+#pragma once
 template <typename T>
 inline T binary_search_sqrt(const T target)
 {
